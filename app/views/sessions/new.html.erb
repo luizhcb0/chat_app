@@ -1,0 +1,9 @@
+<section class="container-fluid">
+
+  <% if current_user %>
+    <%= current_user.username %>
+  <% end %>
+
+  <%= render "form" %>
+  
+</section>

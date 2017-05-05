@@ -1,0 +1,17 @@
+<%= form_tag session_path do %>
+  <div class="form-group">
+    <div class="row">
+      <div class="col-sm-4 col-sm-offset-4">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-user"></i></span>
+          <%= text_field_tag :username, nil, placeholder: 'username', class: 'form-control' %>
+          <!-- <input name="email" type="email" class="form-control" id="email" placeholder="login"> -->
+	      </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= submit_tag "Enter", class: "sign-in btn btn-default" %>
+  </div>
+
+<% end %>
