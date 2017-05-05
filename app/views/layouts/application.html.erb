@@ -3,13 +3,50 @@
   <head>
     <title>ChatApp</title>
     <%= csrf_meta_tags %>
+    
     <%= action_cable_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   </head>
 
   <body>
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active">
+                <% if current_user %>
+                  <%= link_to current_user.username, rooms_path %>
+                <% else %>
+                  <%= link_to root_path, class:"logo-nav" do %>
+                    <i class="fa fa-weixin"></i>
+                  <% end %>
+                <% end %>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <% if current_user %>
+                  <%= link_to "Sign out", session_path, method: :delete %>
+                <% else %>
+                  <%= link_to "Enter", new_session_path %>
+                <% end %>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+    
     <%= yield %>
+  
   </body>
 </html>
