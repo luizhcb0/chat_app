@@ -15,34 +15,55 @@ RSpec.describe SessionsController, type: :controller do
   end
   
   describe "POST #create" do
-    let(:user) {assigns(:user)}
-    context "when user exists" do
-      before(:each) { post :create, params: attributes_for(:user) }
-
-      it "should redirect successfully" do
-        expect(response).to redirect_to rooms_path
-      end
-
-      it "should set session user_id with the right id" do
-        expect(session[:user_id]).to eq user.id
-      end
-    end
+    let(:dialect) {create(:dialect)}
     
     context "when user does not exist" do
-      before(:each) { post :create, params: attributes_for(:user) }
-
-      it "should redirect successfully" do
-        expect(response).to redirect_to rooms_path
-      end
-
-      it "should set session user_id with the right id" do
-        expect(session[:user_id]).to eq user.id
+      let(:user) { assigns(:user) }
+      before(:each) do 
+        post :create, params: { user: attributes_for(:user, dialect_id: dialect.id) }
       end
       
       it "should save the user" do
         expect(user).to be_persisted
       end
+      
+      it "should set session user_id with the right id" do
+        expect(session[:user_id]).to eq user.id
+      end
+
+      it "should redirect successfully" do
+        expect(response).to redirect_to rooms_path
+      end 
+      
+      it "should set the dialect" do
+        expect(user.dialect).to eq dialect
+      end
     end
+    
+    context "when user exists" do
+       let(:user) { assigns(:user) }
+      before(:each) do 
+        user = create(:user)
+        patch :create, params: { user: attributes_for(:user, dialect_id: dialect.id), id: user.id }
+      end
+      
+      it "should save the user" do
+        expect(user).to be_persisted
+      end
+      
+      it "should set session user_id with the right id" do
+        expect(session[:user_id]).to eq user.id
+      end
+      
+      it "should redirect successfully" do
+        expect(response).to redirect_to rooms_path
+      end 
+      
+      it "should update the dialect" do
+        expect(user.dialect).to eq dialect
+      end
+    end
+    
   end
   
   describe "DELETE #destroy" do
