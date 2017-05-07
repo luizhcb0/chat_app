@@ -14,6 +14,14 @@ App.room = App.cable.subscriptions.create "RoomChannel",
     
 $(document).on 'keypress', '[data-behavior~=room_speaker]', (event) ->
   if event.keyCode is 13 # enter
-    App.room.speak event.target.value
+    $text = event.target.value
+    $.ajax '/translate/'+$text,
+      type: 'GET'
+      dataType: 'html'
+      success: (data) ->
+        $a = $(data).filter("table").find("p")
+        App.room.speak $a.text()
+      error: ->
+        alert("Translation Error")
     event.target.value = ''
     event.preventDefault()

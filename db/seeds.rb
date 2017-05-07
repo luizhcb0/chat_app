@@ -8,3 +8,5 @@
 Dialect.create(name: "yoda", front_name: "Yoda")
 Dialect.create(name: "valley", front_name: "Valley Girl")
 Dialect.create(name: "binary", front_name: "Binary")
+Dialect.create(name: "piglatin", front_name: "Pig Latin")
+Dialect.create(name: "haxor", front_name: "Simple Hax0r")
