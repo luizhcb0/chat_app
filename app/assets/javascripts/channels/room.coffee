@@ -12,7 +12,7 @@ App.room = App.cable.subscriptions.create "RoomChannel",
   speak: (message) ->
     @perform 'speak', message: message
     
-$(document).on 'keypress', '[data-behavior~=room_speaker]', (event) ->
+$(document).on 'keypress', '#chat_field', (event) ->
   if event.keyCode is 13 # enter
     $text = event.target.value
     $.ajax '/translate/'+$text,
