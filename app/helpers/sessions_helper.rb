@@ -17,11 +17,6 @@ module SessionsHelper
     current_user.present?
   end
   
-  def login_required
-    if !logged_in?
-      redirect_to new_session_path
-    end
-  end
   
   def dialect_array
     dialect_array = Dialect.all.map { |dialect| [dialect.front_name, dialect.id] }
