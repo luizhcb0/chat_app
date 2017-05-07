@@ -3,7 +3,7 @@
 # change when some model be modified
 
 module StrongParamsHolder
-  def user_params
-    params.require(:user).permit(:username)
+  def sign_up_params
+    params.require(:user).permit(:username, :dialect_id)
   end
 end

@@ -1,17 +1,27 @@
-<%= form_tag session_path do %>
+<%= form_for @user, url: session_path do |f| %>
+
   <div class="form-group">
     <div class="row">
       <div class="col-sm-4 col-sm-offset-4">
         <div class="input-group">
           <span class="input-group-addon"><i class="fa fa-user"></i></span>
-          <%= text_field_tag :username, nil, placeholder: 'username', class: 'form-control' %>
+          <%= f.text_field :username, {placeholder: 'username', class: 'form-control'} %>
+          <!-- <input name="email" type="email" class="form-control" id="email" placeholder="login"> -->
+	      </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4 col-sm-offset-4">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-weixin"></i></span>
+          <%= f.select :dialect_id, options_for_select(dialect_array), {}, { class: 'form-control' } %>
           <!-- <input name="email" type="email" class="form-control" id="email" placeholder="login"> -->
 	      </div>
       </div>
     </div>
   </div>
   <div class="form-group">
-    <%= submit_tag "Enter", class: "sign-in btn btn-default" %>
+    <%= f.submit "Enter", class: "sign-in btn btn-default" %>
   </div>
 
 <% end %>

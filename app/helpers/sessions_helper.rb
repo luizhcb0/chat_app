@@ -17,4 +17,9 @@ module SessionsHelper
     current_user.present?
   end
   
+  
+  def dialect_array
+    dialect_array = Dialect.all.map { |dialect| [dialect.front_name, dialect.id] }
+  end
+  
 end
