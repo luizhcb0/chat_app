@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :dialect do
-    name "English"
+    name "eng"
+    front_name "English"
   end
 end
