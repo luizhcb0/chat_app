@@ -1,3 +1,16 @@
-<div class=“message”>
-  <p><%= message.user.username %> Says:   <%= message.text %> at <%= message.created_at.strftime('%H:%M') %></p>
+<div class="message">
+  <p>
+    <div class="icon_container">
+      <%= inline_svg message.user.dialect.svg_path, class: 'icon' %>
+    </div>
+    <div class="message_username">
+      <b><%= message.user.username %>:</b> 
+    </div>
+    <div class="message_text">
+      <%= message.text %>
+    </div>
+    <div class="message_time">
+      <%= message.created_at.strftime('%H:%M') %>
+    </div>
+  </p>
 </div>

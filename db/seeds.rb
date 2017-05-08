@@ -5,8 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Dialect.create(name: "yoda", front_name: "Yoda")
-Dialect.create(name: "valley", front_name: "Valley Girl")
-Dialect.create(name: "binary", front_name: "Binary")
-Dialect.create(name: "piglatin", front_name: "Pig Latin")
-Dialect.create(name: "haxor", front_name: "Simple Hax0r")
+Dialect.create(name: "yoda", front_name: "Yoda", svg_path: "yoda.svg")
+Dialect.create(name: "valley", front_name: "Valley Girl", svg_path: "valley.svg")
+Dialect.create(name: "binary", front_name: "Binary", svg_path: "bin.svg")
+Dialect.create(name: "piglatin", front_name: "Pig Latin", svg_path: "pig.svg")
+Dialect.create(name: "haxor", front_name: "Simple Hax0r", svg_path: "hex.svg")

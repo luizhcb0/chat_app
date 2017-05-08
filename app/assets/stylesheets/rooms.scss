@@ -1,3 +1,58 @@
 // Place all the styles related to the rooms controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.text_field {
+  color: #fbd082 !important;
+  background-color: #23376a !important;
+  border-color: #09183d !important;
+}
+
+.noresize {
+  resize: none; 
+}
+
+#messages {
+  width: 100%;
+  color: #fbd082 !important;
+  background-color: #19284d !important;
+  border: 1px solid #09183d !important;
+  padding: 15px !important;
+  border-radius: 4px;
+  height: 60vh;
+  max-height:60vh;
+  overflow-y: scroll;
+  margin-bottom: 5vh;
+}
+
+.message {
+  margin-bottom: 4px;
+  width: 100%;
+  display: inline-block;
+}
+
+.message_username {
+  float: left;
+  margin-right: 5%;
+}
+
+.message_text {
+  float: left;
+  margin-left: 2%;
+}
+
+.message_time {
+  font-size: 10px;
+  float: right;
+}
+
+.icon_container {
+  float: left;
+  width: 1.4em;
+  height: 1.4em;
+}
+.icon {
+  fill: #fbd082;
+  width: 100%;
+  height: 100%;
+}

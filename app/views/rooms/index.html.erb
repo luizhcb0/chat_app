@@ -1,9 +1,27 @@
-<h1>Chat room</h1>
-<div id="messages">
-  <%= render @messages %>
-</div>
+<section class="container-fluid">
+  
+  <div class="row">
+    <h1>Chat room</h1>
+  </div>
+  
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3" id="messages_box">
+      <div  id="messages">
+        <%= render @messages %>            
+      </div>
+    </div>
+  </div>
 
-<form>
-  <label>Say something:</label><br>
-  <input type="text" data-behavior="room_speaker">
-</form>
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <%= form_tag class: "navbar-form navbar-left search-form" do %>
+        <div class="form-group">
+          <%#= label_tag "Say Something:", nil, {class: "control-label"} %>
+          <%= text_area_tag :chat_field, nil, {placeholder: 'Start Chat', class: "form-control text_field noresize", rows: 4}  %>
+        </div>  
+      <% end %>
+    </div>
+  </div>
+
+</section>
+

@@ -1,3 +1,23 @@
 // Place all the styles related to the sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.session {
+  margin-top: 5vh;
+}
+
+.enter {
+  background-color: #fbd082 !important;
+  border-color: #09183d !important;
+  color: #111639 !important;
+}
+
+.enter:hover {
+  background-color: #dbb062 !important;
+}
+
+.input-group-addon {
+  background-color: #fbd082 !important;
+  color: #111639 !important;
+  border-color: #09183d !important;
+}
