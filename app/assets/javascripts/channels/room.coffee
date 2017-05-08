@@ -8,6 +8,7 @@ App.room = App.cable.subscriptions.create "RoomChannel",
   received: (data) ->
     # Called when there's incoming data on the websocket for this channel
     $('#messages').append data['message']
+    $('#messages').animate({ scrollTop: $('#messages')[0].scrollHeight }, "fast")
 
   speak: (message) ->
     @perform 'speak', message: message
@@ -22,7 +23,6 @@ $(document).on 'keypress', '#chat_field', (event) ->
         success: (data) ->
           $a = $(data).filter("table").find("p")
           App.room.speak $a.text()
-          $('#messages').animate({ scrollTop: $('#messages')[0].scrollHeight }, "fast")
         error: ->
           alert("Translation Error")
     event.target.value = ''
