@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20170505070353) do
   create_table "dialects", force: :cascade do |t|
     t.string   "name",       null: false
     t.string   "front_name", null: false
+    t.string   "svg_path",   null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
