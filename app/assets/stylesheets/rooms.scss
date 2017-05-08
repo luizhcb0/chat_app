@@ -13,6 +13,7 @@
 }
 
 #messages {
+  width: 100%;
   color: #fbd082 !important;
   background-color: #19284d !important;
   border: 1px solid #09183d !important;
@@ -24,10 +25,23 @@
   margin-bottom: 5vh;
 }
 
-.current_user_message {
-  float: right !important;
+.message {
+  margin-bottom: 4px;
+  width: 100%;
+  display: inline-block;
 }
 
-.other_user_message {
-  float: left !important;
+.message_username {
+  float: left;
+  margin-right: 5%;
+}
+
+.message_text {
+  float: left;
+  margin-left: 2%;
+}
+
+.message_time {
+  font-size: 10px;
+  float: right;
 }
