@@ -24,6 +24,15 @@ class SessionsController < ApplicationController
     
   end
   
+  def online_users
+    @users = User.all.order(:username)
+    render json: @users.map { 
+      |user| { 
+        name: user.username, online: user.online?, dialect: user.dialect.name
+      } 
+    }
+  end
+  
   def destroy
     log_out
     redirect_to new_session_path

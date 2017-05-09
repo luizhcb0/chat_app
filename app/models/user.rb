@@ -4,4 +4,9 @@ class User < ApplicationRecord
   belongs_to :dialect
   
   validates :username, presence: true
+  
+  def online?
+    $redis_onlines.exists( self.id )
+  end
+  
 end
