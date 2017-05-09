@@ -3,4 +3,5 @@ class Dialect < ApplicationRecord
   validates :front_name, presence: true
   validates :svg_path, presence: true
   has_many :users
+  has_many :messages
 end

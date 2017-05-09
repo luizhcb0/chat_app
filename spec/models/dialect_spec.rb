@@ -8,6 +8,7 @@ RSpec.describe Dialect, type: :model do
   end
   
   describe "Associations" do
-    it { should have_many(:users) }  
+    it { should have_many(:users) } 
+    it { should have_many(:messages) }  
   end
 end

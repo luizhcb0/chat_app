@@ -26,12 +26,18 @@ class SessionsController < ApplicationController
   
   def online_users
     @users = User.all.order(:username)
-    render json: @users.map { 
-      |user| { 
-        name: user.username, online: user.online?, dialect: user.dialect.name
-      } 
-    }
+    
+    respond_to do |format|  
+      format.json  { 
+        render json: @users.map { 
+          |user| { 
+            name: user.username, online: user.online?, dialect: user.dialect.name
+          }
+        }
+      }
+    end 
   end
+    
   
   def destroy
     log_out
