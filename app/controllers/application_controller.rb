@@ -2,8 +2,7 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   protect_from_forgery with: :exception
   before_action :login_required
-  
-  after_filter :set_online
+  after_action :set_online
   
   def login_required
     if !logged_in?

@@ -5,6 +5,11 @@ RSpec.describe Message, type: :model do
     it { should validate_presence_of(:text) }
   end
   
+  describe "Associations" do
+    it { should belong_to(:dialect) }
+    it { should belong_to(:user) } 
+  end
+  
   describe "Callbacks" do
     let!(:message) { create(:message) }
     it "perform_later a MessageBroadcastJob" do
